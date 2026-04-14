@@ -1,0 +1,62 @@
+<%= render "pages/hero_section",
+    image_url: asset_path("about_us.jpeg"),
+    title: "",
+    subtitle: "",
+    description: "",
+    button_text: "",
+    button_link: "" %>
+
+<section id="course-list" class="bg-slate-50 py-16 text-black">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 ">
+      <h2 class="mb-4 text-4xl font-black tracking-tight text-black">SCEGLI IL CORSO ADATTO ALLE TUE ESIGENZE</h2>
+      <div class="h-3 w-190 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
+      <p class="space-y-6 text-lg leading-8 text-slate-700">
+        Che tu voglia scoprire la boxe per rimetterti in forma, migliorare la tua resistenza o trovare un ritmo adatto al tuo stile di vita,
+        qui trovi corsi pensati per ogni livello: agonisti, amatori, giovani e bambini.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <% weekday_labels = {
+        monday: "LUN",
+        tuesday: "MAR",
+        wednesday: "MER",
+        thursday: "GIO",
+        friday: "VEN"
+      } %>
+
+      <% @courses.each do |course| %>
+        <article class="group overflow-hidden rounded-3xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div class="flex items-center gap-2 text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <p class="text-base font-bold text-slate-600">
+                <%= course.start_time.strftime("%H:%M") %> - <%= course.end_time.strftime("%H:%M") %>
+              </p>
+            </div>
+          </div>
+
+          <h3 class="mb-3 text-2xl font-black text-slate-900"><%= course.name %></h3>
+          <p class="mb-6 text-sm leading-7 text-slate-600"><%= course.description %></p>
+
+          <div class="mb-8 flex flex-wrap gap-2">
+            <% weekday_labels.each do |day_key, day_label| %>
+              <% if course.public_send(day_key) %>
+                <span class="inline-block rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold text-red-600 uppercase">
+                  <%= day_label %>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="mt-auto flex justify-end">
+            <%= link_to "DETTAGLI >", "#", class: "text-sm font-semibold text-black transition hover:text-red-700" %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>

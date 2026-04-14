@@ -7,6 +7,10 @@ class Course < ApplicationRecord
   validates :end_time, presence: true
   validate :end_time_after_start_time
 
+  def formatted_schedule_time
+    "#{start_time.strftime('%H:%M')} - #{end_time.strftime('%H:%M')}"
+  end
+
   private
 
   def end_time_after_start_time
