@@ -10,9 +10,27 @@
 
 # Create a sample course
 course = Course.find_or_create_by!(name: "Corso Agonistico") do |c|
-  c.start_time = "18:00"
+  c.start_time = "18:30"
   c.end_time = "20:00"
-  c.description = "Corso per atleti agonisti con focus su tecnica e preparazione fisica."
+  c.description = "Corso dedicato a chi vuole competere a livello agonistico, con allenamenti intensivi e focus sulla tecnica avanzata."
+end
+
+course = Course.find_or_create_by!(name: "Corso Amatori Pomeridiani") do |c|
+  c.start_time = "13:00"
+  c.end_time = "14:00"
+  c.description = "Corso dedicato a chi vuole praticare la boxe a livello amatoriale, con allenamenti più leggeri e focus sul fitness e divertimento."
+end
+
+course = Course.find_or_create_by!(name: "Corso Amatori Giovani") do |c|
+  c.start_time = "17:00"
+  c.end_time = "18:30"
+  c.description = "Corso dedicato a giovani atleti amatori, con allenamenti adatti alla loro età e focus sulla tecnica di base e divertimento."
+end
+
+course = Course.find_or_create_by!(name: "Corso Amatori Serali") do |c|
+  c.start_time = "20:00"
+  c.end_time = "21:00"
+  c.description = "Corso dedicato a chi vuole praticare la boxe a livello amatoriale, con allenamenti più leggeri e focus sul fitness e divertimento."
 end
 
 # Create a sample user

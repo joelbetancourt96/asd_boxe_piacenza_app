@@ -4,8 +4,26 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+agonisti:
+  name: Corso Agonistico
+  start_time: 18:30
+  end_time: 20:00
+  description: Corso dedicato a chi vuole competere a livello agonistico, con allenamenti intensivi e focus sulla tecnica avanzata.
+
+afternoon_amateurs:
+  name: Corso Amatori Pomeridiani
+  start_time: 13:00
+  end_time: 14:00
+  description: Corso dedicato a chi vuole praticare la boxe a livello amatoriale, con allenamenti più leggeri e focus sul fitness e divertimento.
+
+youth_amateurs:
+  name: Corso Amatori Giovani
+  start_time: 17:00
+  end_time: 18:30
+  description: Corso dedicato a giovani atleti amatori, con allenamenti adatti alla loro età e focus sulla tecnica di base e divertimento.
+
+evening_amateurs:
+  name: Corso Amatori Serali
+  start_time: 20:00
+  end_time: 21:00
+  description: Corso dedicato a chi vuole praticare la boxe a livello amatoriale, con allenamenti più leggeri e focus sul fitness e divertimento.
