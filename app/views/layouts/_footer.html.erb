@@ -1,4 +1,4 @@
-<footer class="bg-black text-white">
+<footer class="bg-[#ee1D23] text-white">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:px-8 lg:grid-cols-4">
     <div>
       <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Indirizzo</h2>
@@ -6,8 +6,8 @@
       <p class="text-sm leading-7 text-slate-300">Palazzetto dello Sport</p>
       <p class="text-sm leading-7 text-slate-300">Via Alberici Fratelli</p>
       <p class="text-sm leading-7 text-slate-300">29121 Piacenza</p>
-      <p class="mt-2 text-sm leading-7 text-slate-300">Tel. 0523 123456</p>
-      <p class="text-sm leading-7 text-slate-300">Mail: info@asdboxepiacenza.com</p>
+      <p class="mt-2 text-sm leading-7 text-slate-300">Tel. 338 410 5112</p>
+      <p class="text-sm leading-7 text-slate-300">Mail: info.boxepiacenzacr@gmail.com</p>
     </div>
 
     <div>
@@ -22,10 +22,20 @@
       <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Orari</h2>
       <p class="text-sm leading-7 text-slate-300"><span class="font-semibold text-white">Lun-Ven</span> 7:00 – 22:00</p>
       <p class="text-sm leading-7 text-slate-300"><span class="font-semibold text-white">Sab-Dom</span> 9:00 – 19:30</p>
-      <div class="mt-6 flex items-center gap-4 text-slate-300">
-        <span class="text-sm uppercase tracking-[0.2em]">Seguici</span>
-        <a href="#" class="hover:text-white" aria-label="Instagram">IG</a>
-        <a href="#" class="hover:text-white" aria-label="Facebook">FB</a>
+      <div class="mt-6 flex-wrap items-center gap-4">
+        <span class="text-lg font-semibold uppercase tracking-[0.2em]">Seguici</span>
+        <div class="flex gap-3" >
+        <%= link_to "https://www.instagram.com/boxepiacenza1968", target: "_blank", rel: "noopener noreferrer", class: "text-white transition hover:text-slate-300", aria: { label: "Instagram" } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current" aria-hidden="true">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.75 2.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5Zm-4.25 1.25a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>
+          </svg>
+        <% end %>
+        <%= link_to "https://www.facebook.com/boxepiacenza", target: "_blank", rel: "noopener noreferrer", class: "text-white transition hover:text-slate-300", aria: { label: "Facebook" } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current" aria-hidden="true">
+            <path d="M22 12.072C22 6.477 17.523 2 11.928 2 6.48 2 2 6.477 2 12.072 2 17.084 5.656 21.221 10.438 21.98v-7.78H7.897v-3.2h2.542V9.845c0-2.513 1.492-3.893 3.777-3.893 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.772-1.63 1.562v1.875h2.773l-.443 3.2h-2.33v7.78C18.344 21.221 22 17.084 22 12.072Z"/>
+          </svg>
+        <% end %>
+        </div>
       </div>
     </div>
 
