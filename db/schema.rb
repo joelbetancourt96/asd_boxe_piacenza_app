@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_14_151613) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_15_134815) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -51,6 +51,22 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_14_151613) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
     t.index ["profile_id"], name: "index_enrollments_on_profile_id"
+  end
+
+  create_table "gym_infos", force: :cascade do |t|
+    t.string "gym_name", limit: 100
+    t.string "gym_address"
+    t.string "gym_subaddress"
+    t.string "zip_code", limit: 10
+    t.string "city", limit: 50
+    t.string "registered_office_address"
+    t.string "phone"
+    t.string "mobile_phone"
+    t.string "info_email"
+    t.string "vat_number", limit: 11
+    t.string "fiscal_code", limit: 16
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|

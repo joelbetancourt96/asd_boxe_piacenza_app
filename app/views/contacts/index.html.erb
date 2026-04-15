@@ -15,31 +15,31 @@
     <!-- Contact Info Grid -->
     <div class="grid gap-8 md:grid-cols-3">
       <!-- Address -->
-      <a href="https://www.google.com/maps/search/?api=1&query=Via+Alberici+Fratelli+29121+Piacenza" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
+      <a href="https://www.google.com/maps/search/?api=1&query=<%= u("#{@gym_info.gym_address}, #{@gym_info.zip_code} #{@gym_info.city}") %>" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
         <svg class="mb-4 h-12 w-12 text-white transition group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
         </svg>
         <h3 class="mb-2 text-lg font-bold text-white group-hover:text-red-500">Indirizzo</h3>
-        <p class="text-center text-slate-200 group-hover:text-red-500">Via Alberici Fratelli, 29121 Piacenza</p>
+        <p class="text-center text-slate-200 group-hover:text-red-500"><%= @gym_info.gym_address %>, <%= @gym_info.zip_code %> <%= @gym_info.city %></p>
       </a>
 
       <!-- Phone -->
-      <a href="tel:+393384105112" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
+      <a href="tel:<%= @gym_info.mobile_phone %>" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
         <svg class="mb-4 h-12 w-12 text-white transition group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
       </svg>
         <h3 class="mb-2 text-lg font-bold text-white group-hover:text-red-500">Telefono</h3>
-        <p class="text-center text-slate-200 group-hover:text-red-500">+39 338 410 5112</p>
+        <p class="text-center text-slate-200 group-hover:text-red-500"><%= @gym_info.mobile_phone %></p>
       </a>
 
       <!-- Email -->
-      <a href="mailto:info.boxepiacenzacr@gmail.com" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
+      <a href="mailto:<%= @gym_info.info_email %>" class="group flex flex-col items-center rounded-lg bg-[#ee1D23] p-8 transition hover:bg-zinc-800">
         <svg class="mb-4 h-12 w-12 text-white transition group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
         </svg>
         <h3 class="mb-2 text-lg font-bold text-white group-hover:text-red-500">Email</h3>
-        <p class="text-center text-slate-200 group-hover:text-red-500">info.boxepiacenzacr@gmail.com</p>
+        <p class="text-center text-slate-200 group-hover:text-red-500"><%= @gym_info.info_email %></p>
       </a>
     </div>
   </div>

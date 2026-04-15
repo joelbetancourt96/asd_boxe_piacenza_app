@@ -99,3 +99,19 @@ enrollment = Enrollment.find_or_create_by!(profile: profile, course: course) do 
   e.end_date = Date.today + 1.year
   e.status = :attivo
 end
+
+# Gym Info
+GymInfo.destroy_all
+
+gym_info = GymInfo.create!(
+  gym_name: "ASD Boxe Piacenza",
+  gym_address: "Via Fratelli Alberici",
+  gym_subaddress: "Palazzetto dello sport",
+  zip_code: "29121",
+  city: "Piacenza",
+  registered_office_address: "Via S. Giuseppe, 38, 29122 Piacenza PC",
+  mobile_phone: "+393384105112",
+  info_email: "info.boxepiacenzacr@gmail.com",
+  vat_number: "12345678901",
+  fiscal_code: "1234567910"
+)

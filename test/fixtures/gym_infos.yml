@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+asd_boxe_piacenza:
+  gym_name: ASD Boxe Piacenza
+  gym_address: Via Fratelli Alberici
+  gym_subaddress: Palazzetto dello sport
+  zip_code: 29121
+  city: Piacenza
+  registered_office_address: Via S. Giuseppe 38 29122 Piacenza PC
+  mobile_phone: +393384105112
+  info_email: info.boxepiacenzacr@gmail.com
+  vat_number: 12345678901
+  fiscal_code: 1234567910
