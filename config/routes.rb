@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "chi-siamo", to: "aboutus#index", as: :aboutus
   get "corsi", to: "courses#index", as: :courses
+  get "contatti", to: "contacts#index", as: :contactus
 end
