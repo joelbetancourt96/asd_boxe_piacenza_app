@@ -54,6 +54,13 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Aggiungiamo questa gemma a mano SOLO nella sezione development per poter visualizzare le mails che abbiamo generato durante l'invio
+  gem "letter_opener"
+  # A differenza di ciò che dice il tutorial, se lavori con una WSL è meglio usare questa gemmma che ti
+  # permette di avere una pagina specifica del progetto per visualizzare le mail generate
+  # andando su localhost:3000/letter_opener
+  gem "letter_opener_web"
 end
 
 group :test do
