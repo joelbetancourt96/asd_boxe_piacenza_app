@@ -1,18 +1,18 @@
 <header class="bg-[#ee1D23] text-white w-full border-zinc-800 shadow-md">
-  <div class="flex items-stretch justify-between px-6 lg:px-10 h-16 md:h-20"> <div class="flex items-stretch gap-10 lg:gap-12 ml-30">
+  <div class="flex items-stretch justify-between px-6 lg:px-10 h-16 md:h-20">
+    <div class="flex items-stretch gap-10 lg:gap-12 ml-30">
       <div class="flex items-stretch bg-[#ee1D23]">
         <%= link_to root_path, class: "flex items-center h-full overflow-hidden" do %>
           <%= image_tag "logo_app.jpg", alt: "ASD Boxe Piacenza Logo", class: "h-[108%] w-auto max-w-none object-cover" %> 
-          <%# h-[140%] serve a far "zoomare" il logo per tagliare i bordi vuoti %>
         <% end %>
       </div>
-      <nav class="hidden items-center gap-8 text-base font-bold uppercase tracking-widest md:flex">
-        <%= link_to "Home", root_path, class: "hover:text-black transition-colors whitespace-nowrap" %>
-        <%= link_to "Chi siamo", aboutus_path, class: "hover:text-black transition-colors whitespace-nowrap" %>
-        <%= link_to "Abbonamenti", "#", class: "hover:text-black transition-colors whitespace-nowrap" %>
-        <%= link_to "Corsi", courses_path, class: "hover:text-black transition-colors whitespace-nowrap" %>
-        <%= link_to "Contatti", contactus_path, class: "hover:text-black transition-colors whitespace-nowrap" %>
-        <%= link_to "Pugili", "#", class: "hover:text-black transition-colors whitespace-nowrap" %>
+      <nav id="navbar-app" class="hidden items-stretch gap-8 text-base font-bold uppercase tracking-widest md:flex h-full">
+        <a href="/" v-bind:class="isHomeActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap">Home</a>
+        <a href="/chi-siamo" v-bind:class="isAboutUsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap">Chi siamo</a>
+        <a href="#" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap bg-transparent text-white">Abbonamenti</a>
+        <a href="/corsi" v-bind:class="isCoursesActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap">Corsi</a>
+        <a href="/contatti" v-bind:class="isContactsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap">Contatti</a>
+        <a href="#" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap bg-transparent text-white">Pugili</a>
       </nav>
     </div>
     <div class="flex items-center">
