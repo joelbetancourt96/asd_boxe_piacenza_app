@@ -7,7 +7,6 @@ class ContactMailer < ApplicationMailer
     @email = contact_params[:email]
     @message = contact_params[:message]
     @to = "r.joelbetancourt96@gmail.com"
-    puts "eiuie 2"
 
     mail(
       to: @to,
