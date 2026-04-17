@@ -6,7 +6,7 @@ class ContactMailer < ApplicationMailer
     @lastname = contact_params[:last_name]
     @email = contact_params[:email]
     @message = contact_params[:message]
-    @to = "r.joelbetancourt96@gmail.com"
+    @to = GymInfo.first.info_email
 
     mail(
       to: @to,
