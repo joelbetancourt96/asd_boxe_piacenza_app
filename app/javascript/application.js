@@ -12,20 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       computed: {
         isHomeActive() {
-    
           return this.currentPath === "/"
         },
         isAboutUsActive() {
-    
           return this.currentPath === "/chi-siamo"
         },
         isCoursesActive() {
-    
           return this.currentPath === "/corsi"
         },
         isContactsActive() {
-    
           return this.currentPath === "/contatti"
+        },
+        isBoxersActive() {
+          return this.currentPath === "/boxers"
         }
       }
     }).mount(navbarApp)
