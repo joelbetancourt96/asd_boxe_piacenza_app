@@ -19,6 +19,7 @@ class BoxersController < ApplicationController
             draws: athlete_detail&.draws || 0,
             category: athlete_detail&.category || "Unknown",
             weight: athlete_detail&.weight || 0,
+            is_pro: athlete_detail&.is_pro,
             image_url: profile_image_url(profile)
           }
         end

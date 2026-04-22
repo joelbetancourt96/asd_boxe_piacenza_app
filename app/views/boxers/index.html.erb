@@ -121,7 +121,7 @@
                     </svg>
                     <span>{{ boxer.weight }} kg</span>
                   </div>
-                  <div class="rounded-full bg-red-600 px-2 py-1 text-xs font-black uppercase text-white">
+                  <div v-if="boxer.is_pro" class="rounded-full bg-red-600 px-2 py-1 text-xs font-black uppercase text-white">
                     PRO
                   </div>
                 </div>                  
