@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_22_151519) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_22_152804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_22_151519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_pro", default: false, null: false
+    t.string "nickname"
     t.index ["profile_id"], name: "index_athlete_details_on_profile_id"
   end
 

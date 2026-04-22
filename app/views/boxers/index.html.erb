@@ -80,8 +80,15 @@
                   <img :src="boxer.image_url" 
                       :alt="boxer.first_name + ' ' + boxer.last_name" 
                       class="h-full w-full object-cover object-top transition group-hover:scale-105">
+                  <!-- Category Badge -->
                   <div class="absolute right-2 top-2 rounded-full bg-[#ee1D23] px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">
                     {{ boxer.category }}
+                  </div>
+                  
+                  <!-- Nickname Overlay (appears on hover - bottom half) -->
+                  <div v-if="boxer.nickname" class="absolute bottom-0 inset-x-0 h-1/4 flex flex-col justify-end bg-gradient-to-t from-black/70 to-black/20 px-4 py-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <p class="text-xs font-bold uppercase text-[#ee1D23]">Nickname</p>
+                    <p class="text-2xl font-black italic text-white">{{ boxer.nickname }}</p>
                   </div>
                 </div>
 
