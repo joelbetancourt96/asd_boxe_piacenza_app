@@ -2,7 +2,7 @@ class Profile < ApplicationRecord
   enum :profile_type, { admin: 0, allenatore: 1, atleta_agonista: 2, amatore: 3 }
   has_one_attached :profile_image
 
-  belongs_to :user
+  belongs_to :user # TODO: Fare in modo che lo user appartenga ad un profilo Relazione 1:1
   has_one :athlete_detail
   has_many :enrollments
   has_many :courses, through: :enrollments

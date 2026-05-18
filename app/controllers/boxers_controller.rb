@@ -5,6 +5,7 @@ class BoxersController < ApplicationController
       format.json do
         # Eager Loading: una sola query per profili, immagini e dettagli
         profiles = Profile.where(profile_type: :atleta_agonista)
+                          .order(:last_name, :first_name)
                           .with_attached_profile_image
                           .includes(:athlete_detail)
 

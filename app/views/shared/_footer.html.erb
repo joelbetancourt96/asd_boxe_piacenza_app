@@ -1,7 +1,7 @@
 <footer class="bg-[#ee1D23] text-white">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:px-8 lg:grid-cols-4">
     <div>
-      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Indirizzo</h2>
+      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]"><%= t('.address') %></h2>
       <p class="text-sm leading-7 text-slate-200"><%= @gym_info.gym_name %></p>
       <p class="text-sm leading-7 text-slate-200"><%= @gym_info.gym_subaddress %></p>
       <p class="text-sm leading-7 text-slate-200"><%= @gym_info.gym_address %></p>
@@ -11,17 +11,17 @@
     </div>
 
     <div>
-      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Link utili</h2>
+      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]"><%= t('.useful_links') %></h2>
       <ul class="space-y-3 text-sm text-slate-200">
-        <li><%= link_to "Privacy Policy", "#", class: "hover:text-white" %></li>
-        <li><%= link_to "Cookie Policy", "#", class: "hover:text-white" %></li>
+        <li><%= link_to t('.privacy_policy'), "#", class: "hover:text-white" %></li>
+        <li><%= link_to t('.cookie_policy'), "#", class: "hover:text-white" %></li>
       </ul>
     </div>
 
     <div>
-      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Orari</h2>
-      <p class="text-sm leading-7 text-slate-200"><span class="font-semibold text-white">Lun-Ven</span> 7:00 – 22:00</p>
-      <p class="text-sm leading-7 text-slate-200"><span class="font-semibold text-white">Sab-Dom</span> 9:00 – 19:30</p>
+      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]"><%= t('.hours') %></h2>
+      <p class="text-sm leading-7 text-slate-200"><span class="font-semibold text-white"><%= t('.weekdays') %></span> 7:00 – 22:00</p>
+      <p class="text-sm leading-7 text-slate-200"><span class="font-semibold text-white"><%= t('.weekend') %></span> 9:00 – 19:30</p>
       <div class="mt-6 flex-wrap items-center gap-4">
         <span class="text-lg font-semibold uppercase tracking-[0.2em]">Seguici</span>
         <div class="flex gap-3" >
@@ -40,7 +40,7 @@
     </div>
 
     <div>
-      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]">Affiliazioni</h2>
+      <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]"><%= t('.affiliations') %></h2>
       <div class="grid gap-4">
         <div class="h-14 rounded-lg bg-slate-800"></div>
         <div class="h-14 rounded-lg bg-slate-800"></div>
@@ -49,6 +49,6 @@
     </div>
   </div>
   <div class="border-t border-slate-800 px-4 py-6 text-center text-sm text-white sm:px-6 lg:px-8">
-    <%= @gym_info.gym_name %> - C.F. <%= @gym_info.fiscal_code %> - P.IVA <%= @gym_info.vat_number %>
+    <%= @gym_info.gym_name %> - <%= t('.fiscal_code') %> <%= @gym_info.fiscal_code %> - <%= t('.vat_number') %> <%= @gym_info.vat_number %>
   </div>
 </footer>
