@@ -37,46 +37,46 @@ en:
   home:
     title: "Boxe Piacenza"
     subtitle: "Palestra Bruno Orsi since 1968"
-    description: "Scopri i corsi dedicati ad atleti agonisti e amatori, progettati per potenziare tecnica, resistenza e spirito di squadra."
-    button_text: "Scopri i corsi"
+    description: "Discover courses dedicated to competitive and amateur athletes, designed to enhance technique, endurance, and team spirit."
+    button_text: "Discover courses"
 
   # About Us
   about_us:
-    title: "CHI SIAMO"
-    paragraph_1: "Da oltre 50 anni La Boxe piacenza è il punto di riferimento per la pratice del pugilato a Piacenza. Fondata da Bruno Orsi, ex pugile, la società ha una storia consolidata di eccellenza e dedizione, abbiamo sviluppato una comunità di atleti e appassionati che condividono la passione per lo sport e il miglioramento personale."
-    paragraph_2: "In uno spazio di 5.000 mq, luminoso e curato nei dettagli, trovi tutto ciò che serve per vivere il benessere a 360°. La nostra palestra offre un ambiente accogliente e motivante, dove ogni atleta, dal principiante all'agonista, può trovare il supporto e le risorse necessarie per raggiungere i propri obiettivi."
-    paragraph_3: "Con più di 40 ore di attività settimanali e istruttori qualificati, vi accompagniamo in un percorso su misura per restare in forma, migliorare la performance sportiva, ritrovare energia e raggiungere i vostri obiettivi."
-    paragraph_4: "La Boxe piacenza è il tuo spazio per allenarti, rigenerarti e stare bene ogni giorno."
+    title: "ABOUT US"
+    paragraph_1: "For over 50 years, Boxe Piacenza has been the reference point for boxing in Piacenza. Founded by Bruno Orsi, a former boxer, the club has a solid history of excellence and dedication; we have developed a community of athletes and enthusiasts who share a passion for sport and personal improvement."
+    paragraph_2: "In a 5,000 sqm space, bright and detailed, you will find everything you need to experience 360° well-being. Our gym offers a welcoming and motivating environment where every athlete, from beginner to professional, can find the support and resources needed to reach their goals."
+    paragraph_3: "With more than 40 hours of weekly activities and qualified instructors, we accompany you on a tailored journey to stay fit, improve sports performance, regain energy, and achieve your goals."
+    paragraph_4: "Boxe Piacenza is your space to train, regenerate, and feel good every day."
 
   # Courses
   courses:
-    title: "SCEGLI IL CORSO ADATTO ALLE TUE ESIGENZE"
-    description: "Che tu voglia scoprire la boxe per rimetterti in forma, migliorare la tua resistenza o trovare un ritmo adatto al tuo stile di vita, qui trovi corsi pensati per ogni livello: agonisti, amatori, giovani e bambini."
+    title: "CHOOSE THE COURSE THAT SUITS YOUR NEEDS"
+    description: "Whether you want to discover boxing to get back in shape, improve your endurance, or find a rhythm that fits your lifestyle, here you will find courses designed for every level: competitors, amateurs, youth, and children."
     weekdays:
-      monday: "LUN"
-      tuesday: "MAR"
-      wednesday: "MER"
-      thursday: "GIO"
-      friday: "VEN"
-    details: "DETTAGLI >"
+      monday: "MON"
+      tuesday: "TUE"
+      wednesday: "WED"
+      thursday: "THU"
+      friday: "FRI"
+    details: "DETAILS >"
 
   # Boxers
   boxers:
-    title: "I NOSTRI PUGILI"
-    loading: "Caricamento pugili..."
-    error: "Errore nel caricamento dei pugili"
+    title: "OUR BOXERS"
+    loading: "Loading boxers..."
+    error: "Error loading boxers"
     nickname_label: "Nickname"
 
   # Contacts
   contacts:
-    title: "CONTATTACI"
-    address: "Indirizzo"
-    phone: "Telefono"
+    title: "CONTACT US"
+    address: "Address"
+    phone: "Phone"
     email: "Email"
-    form_title_1: "OPPURE COMPILA IL MODULO"
-    form_title_2: "TI CONTATTEREMO NOI"
+    form_title_1: "OR FILL OUT THE FORM"
+    form_title_2: "WE WILL CONTACT YOU"
     form:
-      first_name: "Nome"
+      first_name: "First Name"
       first_name_placeholder: "Il tuo nome"
       last_name: "Cognome"
       last_name_placeholder: "Il tuo cognome"
@@ -86,24 +86,24 @@ en:
       message_placeholder: "Il tuo messaggio..."
       privacy_text: "Accetto il trattamento dei dati personali secondo la"
       privacy_policy: "Privacy Policy"
-      submit: "Invia Messaggio"
+      submit: "Send Message"
 
   # Contact Mailer
   contact_mailer:
-    new_message: "Nuovo Messaggio di Contatto"
-    from: "Da ASD Boxe Piacenza"
-    full_name: "Nome e Cognome"
+    new_message: "New Contact Message"
+    from: "From ASD Boxe Piacenza"
+    full_name: "Full Name"
     email: "Email"
-    message: "Messaggio"
-    footer: "Questo è un messaggio automatico da parte del modulo contatti di ASD Boxe Piacenza."
+    message: "Message"
+    footer: "This is an automated message from the ASD Boxe Piacenza contact form."
     text_version:
-      title: "NUOVO MESSAGGIO DI CONTATTO"
-      copyright: "© %{year} ASD Boxe Piacenza. Tutti i diritti riservati."
+      title: "NEW CONTACT MESSAGE"
+      copyright: "© %{year} ASD Boxe Piacenza. All rights reserved."
 
   # Flash Messages
   flash:
-    contact_success: "Messaggio inviato con successo! Ti contatteremo presto."
-    contact_error: "Errore nell'invio del messaggio. Riprova più tardi."
+    contact_success: "Message sent successfully! We will contact you soon."
+    contact_error: "Error sending the message. Please try again later."
 
   # Layout
   layout:
@@ -111,16 +111,16 @@ en:
 
   shared:
     footer:
-      address: "Indirizzo"
-      useful_links: "Link utili"
+      address: "Address"
+      useful_links: "Useful links"
       privacy_policy: "Privacy Policy"
       cookie_policy: "Cookie Policy"
-      hours: "Orari"
-      weekdays: "Lun-Ven"
-      weekend: "Sab-Dom"
+      hours: "Hours"
+      weekdays: "Mon-Fri"
+      weekend: "Sat-Sun"
       fiscal_code: "C.F."
-      follow_us: "Seguici"
-      affiliations: "Affiliazioni"
+      follow_us: "Follow us"
+      affiliations: "Affiliations"
       phone_label: "Tel."
       vat_number: "P.IVA"
       email_label: "Mail:"
@@ -133,3 +133,4 @@ en:
       boxers: "Boxers"
       login_register: "Login / Register"
       logo_alt: "ASD Boxe Piacenza Logo"  
+s
