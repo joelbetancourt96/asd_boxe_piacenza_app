@@ -94,7 +94,7 @@ athlete_detail = AthleteDetail.find_or_create_by!(profile: profile) do |ad|
 end
 
 # Enroll the profile in the course
-enrollment = Enrollment.find_or_create_by!(profile: profile, course: course) do |e|
+enrollment = Enrollment.find_or_create_by!(profile: profile, course: course_agonistico) do |e|
   e.start_date = Date.today
   e.end_date = Date.today + 1.year
   e.status = :attivo
