@@ -3,6 +3,24 @@ it:
   app_name: 'Boxe Piacenza'
   meta_title: 'Palestra Bruno Orsi dal 1968'
 
+  activerecord:
+    models:
+      profile: "Profilo"
+    attributes:
+      profile:
+        first_name: "Nome"
+        last_name: "Cognome"
+        profile_type: "Tipo profilo"
+    errors:
+      models:
+        profile:
+          attributes:
+            first_name:
+              blank: "Il nome non può essere vuoto."
+            last_name:
+              blank: "Il cognome non può essere vuoto."
+            profile_type:
+              blank: "Seleziona il tipo di profilo."
 
   # Home Page
   home:

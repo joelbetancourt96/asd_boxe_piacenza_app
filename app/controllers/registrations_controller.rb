@@ -23,7 +23,7 @@ class RegistrationsController < ApplicationController
       :email,
       :password,
       :password_confirmation,
-      profile_attributes: [:first_name, :last_name, :profile_type]
+      profile_attributes: [ :first_name, :last_name, :profile_type ]
     )
   end
 end

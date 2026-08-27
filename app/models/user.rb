@@ -9,5 +9,5 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, confirmation: true, allow_nil: true
-  validates :password_confirmation, presence: true, if: :password.present?
+  validates :password_confirmation, presence: true, if: -> { password.present? }
 end
