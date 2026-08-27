@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   get "corsi", to: "courses#index", as: :courses
   get "contatti", to: "contacts#index", as: :contactus
   post "contatti", to: "contacts#create", as: :contactus_create
-  get "boxers", to: "boxers#index", as: :boxers
+
+  resources :boxers, only: [ :index, :edit, :update ]
 end

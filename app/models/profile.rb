@@ -3,7 +3,8 @@ class Profile < ApplicationRecord
   has_one_attached :profile_image
 
   belongs_to :user # TODO: Fare in modo che lo user appartenga ad un profilo Relazione 1:1
-  has_one :athlete_detail
+  has_one :athlete_detail, dependent: :destroy
+  accepts_nested_attributes_for :athlete_detail
   has_many :enrollments
   has_many :courses, through: :enrollments
 
