@@ -1,7 +1,13 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one :profile
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
 
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password_digest, presence: true # , length: { minimum: 6 }, if: :password_digest_changed? Controlla il progetto vendelo per capire se è necessario aggiungere questa validazione
+  normalizes :email, with: ->(email) { email.strip.downcase }
+
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
+                    format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, length: { minimum: 6 }, confirmation: true, allow_nil: true
+  validates :password_confirmation, presence: true, if: :password.present?
 end

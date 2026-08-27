@@ -9,14 +9,22 @@
       <nav id="navbar-app" class="hidden items-stretch gap-8 text-base font-bold uppercase tracking-widest md:flex h-full">
         <a href="/" v-bind:class="isHomeActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.home') %></a>
         <a href="/chi-siamo" v-bind:class="isAboutUsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.about_us') %></a>
-        <a href="#" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap bg-transparent text-white"><%= t('.subscriptions') %></a>
+        <%# <a href="#" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap bg-transparent text-white"><%= t('.subscriptions') %><%# </a> %>
         <a href="/corsi" v-bind:class="isCoursesActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.courses') %></a>
         <a href="/contatti" v-bind:class="isContactsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.contacts') %></a>
         <a href="/boxers" v-bind:class="isBoxersActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.boxers') %></a>
       </nav>
     </div>
-    <div class="flex items-center">
-      <%= link_to t('.login_register'), "#", class: "rounded-full border-2 border-white bg-white px-6 py-2 text-sm font-bold text-black transition hover:bg-transparent hover:text-white whitespace-nowrap" %>
+    <div class="flex items-center gap-3">
+      <% if logged_in? %>
+        <span class="hidden text-sm font-semibold uppercase tracking-[0.2em] text-red-100 md:inline-block">
+          <%= current_user.email %>
+        </span>
+        <%= button_to "Logout", logout_path, method: :delete, form: { class: "inline-block" }, class: "rounded-full border-2 border-white bg-white px-5 py-2 text-sm font-bold text-black transition hover:bg-transparent hover:text-white whitespace-nowrap" %>
+      <%# <% else %>
+        <%# <%= link_to "Login", login_path, class: "rounded-full border-2 border-white bg-transparent px-5 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-black whitespace-nowrap" %>
+        <%# <%= link_to "Sign Up", signup_path, class: "rounded-full border-2 border-white bg-white px-5 py-2 text-sm font-bold text-black transition hover:bg-transparent hover:text-white whitespace-nowrap" %>
+      <% end %>
     </div>
   </div>
 </header>

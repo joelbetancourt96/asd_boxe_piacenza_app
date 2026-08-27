@@ -4,7 +4,23 @@ class ApplicationController < ActionController::Base
 
   before_action :set_gym_info
 
+  helper_method :current_user, :logged_in?, :authenticate_user!
+
   private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id].present?
+  end
+
+  def logged_in?
+    current_user.present?
+  end
+
+  def authenticate_user!
+    return if logged_in?
+
+    redirect_to login_path, alert: "Devi effettuare l'accesso per continuare."
+  end
 
   def set_gym_info
     # Rails cerca i dati nella cache con la chiave 'gym_info_global'
