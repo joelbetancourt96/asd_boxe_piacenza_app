@@ -117,6 +117,8 @@ en:
       cookie_policy: "Cookie Policy"
       hours: "Hours"
       weekdays: "Mon-Fri"
+      amateurs_days: "Mon-Wed-Fri"
+      kids_days: "Tue-Thu"
       weekend: "Sat-Sun"
       fiscal_code: "C.F."
       follow_us: "Follow us"

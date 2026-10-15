@@ -1,0 +1,53 @@
+<section class="bg-slate-50 py-16 text-black min-h-[75vh]">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h1 class="mb-4 text-4xl font-black tracking-tight text-black">INFORMATIVA SUI COOKIE</h1>
+      <div class="h-2 w-48 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
+      <p class="mt-4 text-sm text-slate-500">Informativa estesa sull'uso dei cookie e tecnologie analoghe</p>
+    </div>
+
+    <div class="space-y-8 text-base leading-7 text-slate-700">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">1. Cosa sono i Cookie?</h2>
+        <p>
+          I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali (solitamente al browser), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla successiva visita.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">2. Cookie utilizzati da questo sito</h2>
+        <p class="mb-3">Il presente sito web fa uso esclusivamente delle seguenti tipologie di cookie:</p>
+        
+        <div class="space-y-4">
+          <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 class="font-bold text-slate-900">Cookie Tecnici e di Sessione</h3>
+            <p class="mt-1 text-sm text-slate-600">
+              Necessari per il corretto funzionamento del sito, la gestione della sessione di navigazione e l'accesso alle aree riservate (es. cookie di sessione per l'autenticazione utente). Per l'installazione di questi cookie non è richiesto il preventivo consenso dell'utente.
+            </p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h3 class="font-bold text-slate-900">Cookie di Terze Parti</h3>
+            <p class="mt-1 text-sm text-slate-600">
+              Durante la navigazione potrebbero essere richiamati elementi ospitati su servizi esterni (ad esempio mappe geografiche, icone o font). Tali terze parti possono impostare i propri cookie secondo le rispettive informative sulla privacy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">3. Gestione e Disabilitazione dei Cookie</h2>
+        <p>
+          L'utente può gestire o disabilitare le preferenze relative ai cookie direttamente attraverso le impostazioni del proprio browser (Chrome, Firefox, Safari, Edge). La disabilitazione completa dei cookie tecnici potrebbe compromettere alcune funzionalità essenziali del sito, quali il login o il salvataggio delle preferenze di sessione.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">4. Contatti</h2>
+        <p>
+          Per qualsiasi domanda o chiarimento sull'uso dei cookie su questo sito, puoi contattare <%= @gym_info&.gym_name || "ASD Boxe Piacenza" %> all'indirizzo email <a href="mailto:<%= @gym_info&.info_email %>" class="text-red-600 hover:underline"><%= @gym_info&.info_email %></a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

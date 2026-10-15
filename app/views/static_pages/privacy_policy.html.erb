@@ -1,0 +1,57 @@
+<section class="bg-slate-50 py-16 text-black min-h-[75vh]">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <h1 class="mb-4 text-4xl font-black tracking-tight text-black">INFORMATIVA SULLA PRIVACY</h1>
+      <div class="h-2 w-48 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
+      <p class="mt-4 text-sm text-slate-500">Ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR)</p>
+    </div>
+
+    <div class="space-y-8 text-base leading-7 text-slate-700">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">1. Titolare del Trattamento</h2>
+        <p>
+          Il titolare del trattamento dei dati è <strong><%= @gym_info&.gym_name || "ASD Boxe Piacenza" %></strong>,<br>
+          Sede legale: <%= @gym_info&.registered_office_address.presence || "#{@gym_info&.gym_address}, #{@gym_info&.city}" %><br>
+          Codice Fiscale: <%= @gym_info&.fiscal_code %> | Partita IVA: <%= @gym_info&.vat_number %><br>
+          Email di contatto: <a href="mailto:<%= @gym_info&.info_email %>" class="text-red-600 hover:underline"><%= @gym_info&.info_email %></a>
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">2. Tipologia di Dati Raccolti</h2>
+        <p class="mb-2">I dati personali raccolti tramite questo sito web possono includere:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li><strong>Dati forniti volontariamente dall'utente:</strong> nome, cognome, indirizzo email e messaggio inviati tramite il modulo di contatto o in fase di registrazione.</li>
+          <li><strong>Dati di navigazione:</strong> indirizzi IP, tipo di browser, orari di accesso raccolti in forma aggregata ed anonima per finalità di sicurezza e funzionamento tecnico del sito.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">3. Finalità e Base Giuridica del Trattamento</h2>
+        <p class="mb-2">I dati personali sono trattati esclusivamente per:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Rispondere alle richieste di informazione inoltrate tramite il modulo contatti.</li>
+          <li>Gestire la registrazione dell'account e l'accesso ai servizi dell'associazione sportiva.</li>
+          <li>Adempiere a obblighi di legge, contabili e fiscali o regolamenti federali sportivi (FPI/CONI).</li>
+        </ul>
+        <p class="mt-2">
+          La base giuridica del trattamento è costituita dal consenso esplicito dell'interessato o dall'esecuzione di misure precontrattuali/contrattuali.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">4. Modalità e Periodo di Conservazione dei Dati</h2>
+        <p>
+          Il trattamento dei dati viene effettuato con strumenti elettronici e informatici, adottando adeguate misure di sicurezza per prevenire accessi non autorizzati. I dati saranno conservati solo per il tempo strettamente necessario a gestire la richiesta o per il periodo prescritto dalle normative vigenti.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 mb-2">5. Diritti dell'Interessato</h2>
+        <p>
+          In qualità di interessato, ai sensi degli artt. 15-22 del GDPR, hai il diritto di richiedere l'accesso, la rettifica, la cancellazione o la limitazione del trattamento dei tuoi dati personali, nonché di opporti al loro trattamento. Per esercitare tali diritti è sufficiente inviare un'email a <a href="mailto:<%= @gym_info&.info_email %>" class="text-red-600 hover:underline"><%= @gym_info&.info_email %></a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

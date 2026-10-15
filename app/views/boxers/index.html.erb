@@ -8,7 +8,7 @@
 
 <section id="boxers-section" class="bg-slate-50 py-16 text-black">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-12">
+    <div class="mb-8">
       <h2 class="mb-4 text-4xl font-black tracking-tight text-black">I NOSTRI PUGILI</h2>
       <div class="h-3 w-68 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
     </div>
@@ -29,20 +29,35 @@
         data() {
           return {
             boxers: [],
+            searchQuery: "",
             isAdmin: false,
             loading: true,
             error: null
           }
         },
         computed: {
-          groupedBoxers() {
-            return this.boxers.reduce((acc, boxer) => {
-              if (!acc[boxer.category]) {
-                acc[boxer.category] = [];
-              }
-              acc[boxer.category].push(boxer);
-              return acc;
-            }, {});
+          filteredBoxers() {
+            const query = this.searchQuery.trim().toLowerCase();
+            if (!query) {
+              return this.boxers;
+            }
+
+            // Suddivide la ricerca in singole parole per trovare match flessibili
+            const queryWords = query.split(/\s+/).filter(Boolean);
+
+            return this.boxers.filter(boxer => {
+              const firstName = (boxer.first_name || "").toLowerCase();
+              const lastName = (boxer.last_name || "").toLowerCase();
+              const fullName = `${firstName} ${lastName}`;
+              const reversedFullName = `${lastName} ${firstName}`;
+
+              // Corrisponde se l'intera stringa cercata è presente in "Nome Cognome" o "Cognome Nome",
+              // oppure se ogni parola cercata è contenuta nel nome o nel cognome
+              const matchesDirect = fullName.includes(query) || reversedFullName.includes(query);
+              const matchesAllWords = queryWords.every(word => fullName.includes(word));
+
+              return matchesDirect || matchesAllWords;
+            });
           }
         },
         methods: {
@@ -70,15 +85,50 @@
           this.fetchBoxers();
         },
         template: `
+          <!-- Search Bar -->
+          <div class="mb-10 max-w-md">
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                v-model="searchQuery" 
+                placeholder="Cerca pugile per nome o cognome..." 
+                class="w-full rounded-2xl border border-slate-300 bg-white py-3 pl-11 pr-10 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20"
+              />
+              <button 
+                v-if="searchQuery" 
+                @click="searchQuery = ''" 
+                class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600"
+                aria-label="Pulisci ricerca"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
           <div v-if="loading" class="text-center py-12">
             <p class="text-xl text-slate-600">Caricamento pugili...</p>
           </div>
+          
           <div v-else-if="error" class="text-center py-12">
             <p class="text-xl text-red-600">{{ error }}</p>
           </div>
+
+          <!-- No Results message -->
+          <div v-else-if="filteredBoxers.length === 0" class="text-center py-16 bg-white rounded-2xl border border-slate-200">
+            <p class="text-lg font-semibold text-slate-700">Nessun pugile trovato</p>
+            <p class="text-sm text-slate-500 mt-1">Nessun risultato corrispondente a "{{ searchQuery }}".</p>
+          </div>
+
           <div v-else>
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              <div v-for="boxer in boxers" :key="boxer.id" class="group overflow-hidden rounded-lg bg-white shadow-md transition hover:shadow-lg">
+              <div v-for="boxer in filteredBoxers" :key="boxer.id" class="group overflow-hidden rounded-lg bg-white shadow-md transition hover:shadow-lg">
                 <!-- Image Section -->
                 <div class="relative aspect-[3/4] overflow-hidden bg-gray-900">
                   <img :src="boxer.image_url" 
@@ -98,19 +148,19 @@
                     </svg>
                   </a>
 
-                  <!-- Category Badge -->
-                  <div class="absolute right-2 top-2 rounded-full bg-[#ee1D23] px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">
+                  <!-- Category Badge (visibile solo se presente) -->
+                  <div v-if="boxer.category" class="absolute right-2 top-2 rounded-full bg-[#ee1D23] px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">
                     {{ boxer.category }}
                   </div>
                   
-                  <!-- Nickname Overlay (appears on hover - bottom half) -->
+                  <!-- Nickname Overlay -->
                   <div v-if="boxer.nickname" class="absolute bottom-0 inset-x-0 h-1/4 flex flex-col justify-end bg-gradient-to-t from-black/70 to-black/20 px-4 py-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <p class="text-xs font-bold uppercase text-[#ee1D23]">Nickname</p>
                     <p class="text-2xl font-black italic text-white">{{ boxer.nickname }}</p>
                   </div>
                 </div>
 
-                <!-- Name Section (Black Background) -->
+                <!-- Name Section -->
                 <div class="bg-[#ee1D23] px-3 py-3 text-white">
                   <p class="text-xs font-semibold">{{ boxer.first_name }}</p>
                   <h3 class="text-lg font-black uppercase text-slate-100">{{ boxer.last_name }}</h3>
@@ -118,17 +168,14 @@
 
                 <!-- Record Grid (V, P, S) -->
                 <div class="grid grid-cols-3 gap-1 bg-white px-3 py-2">
-                  <!-- V (Wins - Green) -->
                   <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
                     <p class="text-xs font-semibold uppercase text-slate-200">V</p>
                     <p class="text-xl font-black text-slate-200">{{ boxer.wins }}</p>
                   </div>
-                  <!-- P (Draws - Yellow) -->
                   <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
                     <p class="text-xs font-semibold uppercase text-slate-200">P</p>
                     <p class="text-xl font-black text-slate-200">{{ boxer.draws }}</p>
                   </div>
-                  <!-- S (Losses - Red) -->
                   <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
                     <p class="text-xs font-semibold uppercase text-slate-200">S</p>
                     <p class="text-xl font-black text-slate-200">{{ boxer.losses }}</p>
@@ -154,7 +201,7 @@
             </div>
           </div>
         `
-      }).mount(boxersList)
+      }).mount(boxersList);
     }
-  })
+  });
 </script>

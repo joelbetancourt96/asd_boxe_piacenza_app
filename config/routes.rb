@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   get "contatti", to: "contacts#index", as: :contactus
   post "contatti", to: "contacts#create", as: :contactus_create
 
+  get "privacy-policy", to: "static_pages#privacy_policy", as: :privacy_policy
+  get "cookie-policy", to: "static_pages#cookie_policy", as: :cookie_policy
+
   resources :boxers, only: [ :index, :edit, :update ]
 end

@@ -106,6 +106,8 @@ it:
       cookie_policy: "Cookie Policy"
       hours: "Orari"
       weekdays: "Lun-Ven"
+      amateurs_days: "Lun-Merc-Ven"
+      kids_days: "Mar-Gio"
       weekend: "Sab-Dom"
       fiscal_code: "C.F."
       follow_us: "Seguici"

@@ -113,7 +113,7 @@
           { required: true, class: "mt-1 h-5 w-5 cursor-pointer rounded border-zinc-300 bg-white text-red-500 transition focus:ring-red-500 accent-red-500" } %>
         <%= form.label :privacy, class: "text-sm text-zinc-700" do %>
           Accetto il trattamento dei dati personali secondo la
-          <a href="#" class="font-semibold text-red-500 hover:underline">Privacy Policy</a>
+          <%= link_to "Privacy Policy", privacy_policy_path, target: "_blank", class: "font-semibold text-red-500 hover:underline" %>
         <% end %>
       </div>
 

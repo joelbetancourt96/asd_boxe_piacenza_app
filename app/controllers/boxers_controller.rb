@@ -20,7 +20,7 @@ class BoxersController < ApplicationController
             wins: athlete_detail&.wins || 0,
             losses: athlete_detail&.losses || 0,
             draws: athlete_detail&.draws || 0,
-            category: athlete_detail&.category || "Unknown",
+            category: athlete_detail&.category.presence,
             weight: athlete_detail&.weight || 0,
             is_pro: athlete_detail&.is_pro,
             nickname: athlete_detail&.nickname,
@@ -90,7 +90,7 @@ class BoxersController < ApplicationController
     if profile.profile_image.attached?
       url_for(profile.profile_image)
     else
-      "https://via.placeholder.com/300x400?text=#{profile.first_name}+#{profile.last_name}"
+      ActionController::Base.helpers.asset_path("default_boxer.png")
     end
   end
 end
