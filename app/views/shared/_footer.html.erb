@@ -12,9 +12,13 @@
 
     <div>
       <h2 class="mb-4 text-lg font-semibold uppercase tracking-[0.2em]"><%= t('.useful_links') %></h2>
-      <ul class="space-y-3 text-sm text-slate-200">
-        <li><%= link_to t('.privacy_policy'), privacy_policy_path, class: "hover:text-white" %></li>
-        <li><%= link_to t('.cookie_policy'), cookie_policy_path, class: "hover:text-white" %></li>
+      <ul class="space-y-2 text-sm text-slate-200">
+        <li>
+          <%= link_to t('.privacy_policy'), privacy_policy_path, class: "inline-block py-2 text-slate-100 hover:text-white transition-colors" %>
+        </li>
+        <li>
+          <%= link_to t('.cookie_policy'), cookie_policy_path, class: "inline-block py-2 text-slate-100 hover:text-white transition-colors" %>
+        </li>
       </ul>
     </div>
 

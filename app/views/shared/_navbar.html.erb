@@ -1,30 +1,63 @@
-<header class="bg-[#ee1D23] text-white w-full border-zinc-800 shadow-md">
-  <div class="flex items-stretch justify-between px-6 lg:px-10 h-16 md:h-20">
-    <div class="flex items-stretch gap-10 lg:gap-12 ml-30">
-      <div class="flex items-stretch bg-[#ee1D23]">
-        <%= link_to root_path, class: "flex items-center h-full overflow-hidden" do %>
-          <%= image_tag "logo_app.jpg", alt: t('.logo_alt'), class: "h-[108%] w-auto max-w-none object-cover" %> 
+<header id="navbar-app" class="bg-[#ee1D23] text-white w-full border-zinc-800 shadow-md sticky top-0 z-50">
+  <div class="flex items-center justify-between px-4 sm:px-6 lg:px-10 h-16 md:h-20 max-w-7xl mx-auto">
+    
+    <!-- Logo & Desktop Navigation -->
+    <div class="flex items-center gap-6 lg:gap-10 h-full">
+      <div class="flex items-center h-full">
+        <%= link_to root_path, class: "flex items-center h-full py-1" do %>
+          <%= image_tag "logo_app.jpg", alt: t('.logo_alt'), class: "h-12 md:h-20 w-auto object-contain" %> 
         <% end %>
       </div>
-      <nav id="navbar-app" class="hidden items-stretch gap-8 text-base font-bold uppercase tracking-widest md:flex h-full">
-        <a href="/" v-bind:class="isHomeActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.home') %></a>
-        <a href="/chi-siamo" v-bind:class="isAboutUsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.about_us') %></a>
-        <%# <a href="#" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap bg-transparent text-white"><%= t('.subscriptions') %><%# </a> %>
-        <a href="/corsi" v-bind:class="isCoursesActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.courses') %></a>
-        <a href="/contatti" v-bind:class="isContactsActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.contacts') %></a>
-        <a href="/boxers" v-bind:class="isBoxersActive ? 'bg-white text-black border-2 border-white' : 'bg-transparent text-white'" class="flex items-center h-full px-4 py-2 transition-colors whitespace-nowrap"><%= t('.boxers') %></a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-stretch gap-4 lg:gap-6 text-sm lg:text-base font-bold uppercase tracking-wider h-full">
+        <a href="/" :class="isHomeActive ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-red-700'" class="flex items-center px-3 lg:px-4 transition-colors whitespace-nowrap"><%= t('.home') %></a>
+        <a href="/chi-siamo" :class="isAboutUsActive ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-red-700'" class="flex items-center px-3 lg:px-4 transition-colors whitespace-nowrap"><%= t('.about_us') %></a>
+        <a href="/corsi" :class="isCoursesActive ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-red-700'" class="flex items-center px-3 lg:px-4 transition-colors whitespace-nowrap"><%= t('.courses') %></a>
+        <a href="/contatti" :class="isContactsActive ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-red-700'" class="flex items-center px-3 lg:px-4 transition-colors whitespace-nowrap"><%= t('.contacts') %></a>
+        <a href="/boxers" :class="isBoxersActive ? 'bg-white text-black' : 'bg-transparent text-white hover:bg-red-700'" class="flex items-center px-3 lg:px-4 transition-colors whitespace-nowrap"><%= t('.boxers') %></a>
       </nav>
     </div>
+
+    <!-- Right Controls: Auth + Mobile Hamburger Button -->
     <div class="flex items-center gap-3">
       <% if logged_in? %>
-        <span class="hidden text-sm font-semibold uppercase tracking-[0.2em] text-red-100 md:inline-block">
+        <span class="hidden lg:inline-block text-xs font-semibold uppercase tracking-wider text-red-100 truncate max-w-[150px]">
           <%= current_user.email %>
         </span>
-        <%= button_to "Logout", logout_path, method: :delete, form: { class: "inline-block" }, class: "rounded-full border-2 border-white bg-white px-5 py-2 text-sm font-bold text-black transition hover:bg-transparent hover:text-white whitespace-nowrap" %>
-      <%# <% else %>
-        <%# <%= link_to "Login", login_path, class: "rounded-full border-2 border-white bg-transparent px-5 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-black whitespace-nowrap" %>
-        <%# <%= link_to "Sign Up", signup_path, class: "rounded-full border-2 border-white bg-white px-5 py-2 text-sm font-bold text-black transition hover:bg-transparent hover:text-white whitespace-nowrap" %>
+        <%= button_to "Logout", logout_path, method: :delete, form: { class: "hidden sm:inline-block" }, class: "rounded-full border-2 border-white bg-white px-4 py-1.5 text-xs font-bold text-black transition hover:bg-transparent hover:text-white" %>
       <% end %>
+
+      <!-- Mobile Hamburger Button -->
+      <button 
+        type="button" 
+        @click="isMobileMenuOpen = !isMobileMenuOpen" 
+        class="inline-flex md:hidden p-2 rounded-lg text-white hover:bg-red-700 focus:outline-none"
+        aria-label="Toggle Menu"
+      >
+        <svg v-if="!isMobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div v-show="isMobileMenuOpen" class="md:hidden border-t border-red-700 bg-red-600 px-4 pt-3 pb-5 space-y-2">
+    <a href="/" :class="isHomeActive ? 'bg-white text-black font-extrabold' : 'text-white font-semibold'" class="block rounded-lg px-3 py-2 text-base uppercase tracking-wider"><%= t('.home') %></a>
+    <a href="/chi-siamo" :class="isAboutUsActive ? 'bg-white text-black font-extrabold' : 'text-white font-semibold'" class="block rounded-lg px-3 py-2 text-base uppercase tracking-wider"><%= t('.about_us') %></a>
+    <a href="/corsi" :class="isCoursesActive ? 'bg-white text-black font-extrabold' : 'text-white font-semibold'" class="block rounded-lg px-3 py-2 text-base uppercase tracking-wider"><%= t('.courses') %></a>
+    <a href="/contatti" :class="isContactsActive ? 'bg-white text-black font-extrabold' : 'text-white font-semibold'" class="block rounded-lg px-3 py-2 text-base uppercase tracking-wider"><%= t('.contacts') %></a>
+    <a href="/boxers" :class="isBoxersActive ? 'bg-white text-black font-extrabold' : 'text-white font-semibold'" class="block rounded-lg px-3 py-2 text-base uppercase tracking-wider"><%= t('.boxers') %></a>
+
+    <% if logged_in? %>
+      <div class="pt-3 border-t border-red-500">
+        <p class="text-xs text-red-200 mb-2 truncate"><%= current_user.email %></p>
+        <%= button_to "Logout", logout_path, method: :delete, class: "w-full text-center rounded-lg bg-white px-3 py-2 text-sm font-bold text-black" %>
+      </div>
+    <% end %>
   </div>
 </header>

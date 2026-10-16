@@ -22,7 +22,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen bg-slate-950 text-white">
+  <body class="min-h-screen bg-slate-950 text-white overflow-x-hidden flex flex-col justify-between">
     <%= render "shared/navbar" %>
 
     <% if notice.present? || alert.present? %>

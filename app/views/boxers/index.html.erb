@@ -10,7 +10,7 @@
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
       <h2 class="mb-4 text-4xl font-black tracking-tight text-black">I NOSTRI PUGILI</h2>
-      <div class="h-3 w-68 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
+      <div class="h-2 sm:h-3 w-68 sm:w-68 bg-gradient-to-r from-red-600 via-red-500 to-transparent"></div>
     </div>
 
     <!-- Vue.js Boxers App Mount Point -->
@@ -128,63 +128,65 @@
 
           <div v-else>
             <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              <div v-for="boxer in filteredBoxers" :key="boxer.id" class="group overflow-hidden rounded-lg bg-white shadow-md transition hover:shadow-lg">
+              <div v-for="boxer in filteredBoxers" :key="boxer.id" class="group overflow-hidden rounded-2xl bg-white shadow-sm border border-slate-200 transition hover:shadow-md">
                 <!-- Image Section -->
-                <div class="relative aspect-[3/4] overflow-hidden bg-gray-900">
+                <div class="relative aspect-[3/4] overflow-hidden bg-zinc-900">
                   <img :src="boxer.image_url" 
                       :alt="boxer.first_name + ' ' + boxer.last_name" 
-                      class="h-full w-full object-cover object-top transition group-hover:scale-105">
+                      loading="lazy"
+                      class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-105">
 
+                  <!-- Admin Edit Button: Minimo 44x44px per touch WCAG -->
                   <a
                     v-if="isAdmin"
                     :href="boxer.edit_path"
-                    class="absolute right-2 top-12 inline-flex items-center justify-center rounded-full border border-white/80 bg-slate-950/80 p-2 text-red-400 shadow-lg shadow-slate-950/40 transition hover:bg-red-600 hover:text-white"
-                    aria-label="Edit boxer"
-                    title="Edit boxer"
+                    class="absolute right-3 top-12 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-slate-950/80 text-red-400 shadow-md transition hover:bg-red-600 hover:text-white focus:ring-2 focus:ring-white"
+                    aria-label="Modifica pugile"
+                    title="Modifica pugile"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M12 20h9"/>
                       <path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/>
                     </svg>
                   </a>
 
-                  <!-- Category Badge (visibile solo se presente) -->
-                  <div v-if="boxer.category" class="absolute right-2 top-2 rounded-full bg-[#ee1D23] px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">
+                  <!-- Category Badge -->
+                  <div v-if="boxer.category" class="absolute right-3 top-3 rounded-full bg-red-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow">
                     {{ boxer.category }}
                   </div>
                   
-                  <!-- Nickname Overlay -->
-                  <div v-if="boxer.nickname" class="absolute bottom-0 inset-x-0 h-1/4 flex flex-col justify-end bg-gradient-to-t from-black/70 to-black/20 px-4 py-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <p class="text-xs font-bold uppercase text-[#ee1D23]">Nickname</p>
-                    <p class="text-2xl font-black italic text-white">{{ boxer.nickname }}</p>
+                  <!-- Nickname Overlay: Sempre visibile come gradiente leggero su touch, rinforzato su hover -->
+                  <div v-if="boxer.nickname" class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-4 py-3 opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-red-400">Nickname</p>
+                    <p class="text-lg font-black italic text-white truncate">{{ boxer.nickname }}</p>
                   </div>
                 </div>
 
                 <!-- Name Section -->
-                <div class="bg-[#ee1D23] px-3 py-3 text-white">
-                  <p class="text-xs font-semibold">{{ boxer.first_name }}</p>
-                  <h3 class="text-lg font-black uppercase text-slate-100">{{ boxer.last_name }}</h3>
+                <div class="bg-[#ee1D23] px-4 py-3 text-white">
+                  <p class="text-xs font-medium uppercase tracking-wider text-red-100">{{ boxer.first_name }}</p>
+                  <h3 class="text-lg font-black uppercase text-white truncate">{{ boxer.last_name }}</h3>
                 </div>
 
-                <!-- Record Grid (V, P, S) -->
-                <div class="grid grid-cols-3 gap-1 bg-white px-3 py-2">
-                  <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
-                    <p class="text-xs font-semibold uppercase text-slate-200">V</p>
-                    <p class="text-xl font-black text-slate-200">{{ boxer.wins }}</p>
+                <!-- Record Grid (V, P, S) con testo bianco puro per contrasto elevato -->
+                <div class="grid grid-cols-3 gap-1 bg-white p-2 border-b border-slate-100">
+                  <div class="rounded-lg bg-[#ee1D23] py-1.5 text-center">
+                    <p class="text-[10px] font-bold uppercase text-white/90">V</p>
+                    <p class="text-lg font-black text-white">{{ boxer.wins }}</p>
                   </div>
-                  <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
-                    <p class="text-xs font-semibold uppercase text-slate-200">P</p>
-                    <p class="text-xl font-black text-slate-200">{{ boxer.draws }}</p>
+                  <div class="rounded-lg bg-[#ee1D23] py-1.5 text-center">
+                    <p class="text-[10px] font-bold uppercase text-white/90">P</p>
+                    <p class="text-lg font-black text-white">{{ boxer.draws }}</p>
                   </div>
-                  <div class="rounded bg-[#ee1D23] px-2 py-2 text-center">
-                    <p class="text-xs font-semibold uppercase text-slate-200">S</p>
-                    <p class="text-xl font-black text-slate-200">{{ boxer.losses }}</p>
+                  <div class="rounded-lg bg-[#ee1D23] py-1.5 text-center">
+                    <p class="text-[10px] font-bold uppercase text-white/90">S</p>
+                    <p class="text-lg font-black text-white">{{ boxer.losses }}</p>
                   </div>
                 </div>
 
                 <!-- Bottom Bar (Weight + PRO Tag) -->
-                <div class="flex items-center justify-between bg-white px-3 py-2">
-                  <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <div class="flex items-center justify-between bg-white px-4 py-3 min-h-[44px]">
+                  <div class="flex items-center gap-2 text-xs font-bold text-slate-800">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
                       <path d="M9 7h6" />
@@ -193,11 +195,11 @@
                     </svg>
                     <span>{{ boxer.weight }} kg</span>
                   </div>
-                  <div v-if="boxer.is_pro" class="rounded-full bg-red-600 px-2 py-1 text-xs font-black uppercase text-white">
+                  <div v-if="boxer.is_pro" class="rounded-full bg-red-600 px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider text-white">
                     PRO
                   </div>
-                </div>                  
-              </div>
+                </div>
+              </div>                  
             </div>
           </div>
         `

@@ -93,9 +93,10 @@
             <%= athlete_form.text_field :nickname, class: "w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/30" %>
           </div>
 
-          <div class="flex items-end">
-            <label class="flex w-full items-center justify-between rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-200">
-              <span class="text-sm font-medium">Pro</span>
+          <div class="flex flex-col justify-end">
+            <span class="mb-2 block text-sm font-medium text-transparent hidden md:block select-none">Allineamento</span>
+            <label class="flex h-[46px] w-full items-center justify-between rounded-xl border border-slate-700 bg-slate-950 px-4 text-slate-200 cursor-pointer">
+              <span class="text-sm font-medium">Atleta PRO</span>
               <%= athlete_form.check_box :is_pro, class: "h-5 w-5 rounded border-slate-600 bg-slate-900 text-red-600 focus:ring-red-500" %>
             </label>
           </div>

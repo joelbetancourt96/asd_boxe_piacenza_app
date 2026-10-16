@@ -1,4 +1,4 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+// app/javascript/application.js
 import { createApp } from "vue"
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     createApp({
       data() {
         return {
-          currentPath: window.location.pathname
+          currentPath: window.location.pathname,
+          isMobileMenuOpen: false
         }
       },
       computed: {
@@ -28,7 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }).mount(navbarApp)
-  } else {
-    console.log("Navbar app not found");
   }
 })
