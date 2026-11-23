@@ -4,8 +4,13 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  fpi_card_id: TESS001
+  wins: 5
+  draws: 1
+  losses: 2
+  weight: 75.5
+  category: Pesi Medi
+  is_pro: false
+  nickname: Il Toro
+  profile: one
